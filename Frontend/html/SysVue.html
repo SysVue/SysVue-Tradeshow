@@ -1,0 +1,526 @@
+<html lang="en">
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+html,
+body {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  place-items: center;
+  /* background: rgb(242,243,245); */
+  background: #f3f5fa;
+/* background: linear-gradient(90deg, rgba(251,253,254,1) 0%, rgba(226,226,226,1) 100%); */
+  font-family: "Jost", sans-serif;
+  /* background: -webkit-linear-gradient(left, #a445b2, #fa4299); */
+}
+
+.wrapper {
+  max-width: 450px;
+  height: 500px;
+  background: #2B3784;
+  color: white;
+  padding: 30px 60px;
+  border-radius: 10px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* position: absolute; */
+  z-index:4;
+}
+
+.wrapper .title-text {
+  display: flex;
+  width: 200%;
+}
+
+.wrapper .title-text .title {
+  width: 50%;
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .form-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.form-container .slide-controls {
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  margin: 30px 0 10px 0;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+}
+
+.slide-controls .slide {
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  margin-right: 35px;
+  transition: all 0.6s ease;
+}
+
+.slide-controls .signup {
+  color: #000;
+  margin-left: 40px;
+}
+
+.slide-controls .slide-tab {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  border-radius: 5px;
+  z-index: 0;
+  background: rgb(251,253,254);
+background: linear-gradient(90deg, rgba(251,253,254,1) 0%, rgba(226,226,226,1) 100%);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+input[type="checkb"] {
+  display: none;
+}
+
+#signup:checked ~ .slide-tab {
+  left: 50%;
+}
+
+#signup:checked ~ .signup {
+  color: #2B3784;;
+}
+
+#signup:checked ~ .login {
+  color: white;
+}
+
+#login:checked ~ .signup {
+  color: white;
+}
+
+#login:checked ~ .login {
+  color: #2B3784;;
+}
+
+.form-container .form-inner {
+  display: flex;
+  width: 200%;
+}
+
+.form-container .form-inner form {
+  width: 50%;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-inner form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-inner .logsec .field input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  /* padding-left: 15px; */
+  /* border-radius: 5px; */
+  /* border: 1px solid lightgrey; */
+  border: none;
+  border-bottom: 1px solid white;
+  /* border-bottom-width: 2px; */
+  transition: all 0.4s ease;
+  /* padding-right: 30px; */
+  background-color: #2B3784;
+  color: white;
+}
+
+
+.form-inner form #logbtn{
+  background-color: white;
+  color: #2B3784;;
+  width: auto;
+  padding: 5px 55px;
+  margin-left: 80px;
+  border-bottom: none;
+  border-radius: 50px;
+  cursor:pointer;
+}
+.form-inner form .field input::placeholder { 
+  color: white;
+  opacity: 1; 
+}
+
+.form-inner form .field input:focus {
+  border-color: #fc83bb;
+}
+
+.form-inner form .pass-link {
+  margin-top: 5px;
+}
+
+.form-inner form .pass-link a,
+.form-inner form .signup-link a {
+  color: #fa4299;
+  text-decoration: none;
+}
+
+.form-inner form .signup-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover {
+  text-decoration: underline;
+}
+
+form .field input[type="submit"] {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+  padding-left: 0px;
+  border: none;
+  cursor: pointer;
+  background: rgb(251,253,254);
+background: linear-gradient(90deg, rgba(251,253,254,1) 0%, rgba(226,226,226,1) 100%);
+}
+
+#logo{
+    
+    width: 200px;
+    height: 80px;
+    margin-left:54px;
+    margin-bottom: 10px;
+    /* background-color: black; */
+    text-align: center;
+}
+#logo-img{
+    width: 100%;
+    height: 100%;
+}
+#login,#signup{
+    opacity: 0;
+}
+.field input{
+    color: #2B3784;;
+}
+
+#redsig{
+    display: flex; 
+    align-items: center;
+    border: 1px solid red;
+    padding: 5px 10px;
+    font-size: 20px;
+    color: rgb(214, 68, 68);
+    border-radius: 3px;
+    transition: 0.2s;
+    position: absolute;
+    top: 4%;
+    opacity: 0;
+}
+#thumb{
+    /* border: 1px solid red; */
+    font-size: 20px;
+    margin-right: 10px;
+}
+#logogif{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  bottom: 0;
+  display: none;
+}
+  body{
+    overflow:hidden;
+  }
+  .bubbles{
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      bottom: -70px;
+    z-index: 2;
+    
+      
+  }
+  .bubbles img{
+      width: 50px;
+      animation: bubble 10s linear infinite;
+  }
+
+
+  @keyframes bubble{
+      0%{
+          transform: translateY(0);
+          opacity: 0;
+      }
+      25%{	
+          opacity: 1;
+      }
+      50%{
+          opacity: 1;
+      }
+      75%{	
+          opacity: 1;
+      }
+      100%{
+          transform: translateY(-90vh);
+          opacity: 0;
+      }
+  }
+
+  .bubbles img:nth-child(1){
+      animation-delay: 4.1s;
+  }
+  .bubbles img:nth-child(2){
+      animation-delay: 2.4s;
+  }
+  .bubbles img:nth-child(3){
+      animation-delay: 0.4s;
+  }
+  .bubbles img:nth-child(4){
+      animation-delay: 5.2s;
+  }
+  .bubbles img:nth-child(5){
+      animation-delay: 1.2s;
+  }
+  .bubbles img:nth-child(6){
+      animation-delay: 3.7s;
+  }
+
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & SignUp Form </title>
+</head>
+
+<body>
+  <div id="logogif"><img width="100%" height="100%" id="logoimggif" src="tech_anim_1.gif"/></div>
+    <div id="redsig">
+        <div id="thumb">
+            <span class="material-symbols-outlined">
+                thumb_down
+                </span>
+        </div>
+        <h4>Username or Password not available</h4>
+    </div>
+  <div class="wrapper">
+      <div class="title-text">
+      <div class="title login">Welcome !</div>
+      <div class="title signup">Welcome !</div>
+    </div>
+
+    <!-- Start Form Container -->
+    <div class="form-container">
+      <div class="slide-controls">
+        <input type="radio" name="slider" id="login" checked >
+        <input type="radio" name="slider" id="signup">
+        <label for="login" class="slide login">Log In</label>
+        <label for="signup" class="slide signup"> Sign Up</label>
+        <div class="slide-tab"></div>
+      </div>
+
+      <div class="form-inner">
+
+        <!-- Start Login Form -->
+        <form action="#" class="login logsec">
+          <div class="field">
+            <input id="logname" type="text" name="logname" placeholder="name" required autocomplete="off">
+          </div>
+          <div class="field">
+            <input id="logpass" type="password" name="logpass" placeholder="password" required autocomplete="off">
+          </div>
+          <div class="pass-link">
+         
+          </div>
+          <div class="field">
+            <input type="button" id="logbtn" onclick="verifyUser()" value="Log In">
+          </div>
+          <!-- <div class="signup-link">
+            Not a member? <a href="#">Sign Up now</a>
+          </div> -->
+        </form>
+
+        <!-- Start Signup Form -->
+        <form action="#" class="signup  logsec">
+          
+          <div class="field">
+
+            <input id="signname" type="text" name="signname" id="signname" placeholder="name" required autocomplete="off">
+            
+          </div>
+          <div class="field">
+            <input id="signpass" type="password" name="signpass" id="signpass" placeholder="password" required autocomplete="off">
+
+          </div>
+          <div class="field">
+            <input id="signmail" type="email" name="signmail" id="signmail" placeholder="Email" required autocomplete="off">
+          </div>
+          
+
+          <div class="field">
+            <input type="button" id="logbtn" onclick="infoDetails()" value="Sign Up">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="bubbles">
+      <img src="../assets/Processor.png" alt="">
+      <img src="../assets/SD.png" alt="">
+      <img src="../assets/SSD.png" alt="">
+      <img src="../assets/Wi-Fi.png" alt="">
+  </div>
+</body>
+<script>
+    const loginForm = document.querySelector("form.login");
+
+const signupForm = document.querySelector("form.signup");
+
+const loginBtn = document.querySelector("label.login");
+
+const signupBtn = document.querySelector("label.signup");
+
+const signupLink = document.querySelector(".signup-link a");
+
+const loginText = document.querySelector(".title-text .login");
+
+const signupText = document.querySelector(".title-text .signup");
+
+signupBtn.onclick = () => {
+  loginForm.style.marginLeft = "-50%";
+  loginText.style.marginLeft = "-50%";
+};
+
+loginBtn.onclick = () => {
+  loginForm.style.marginLeft = "0%";
+  loginText.style.marginLeft = "0%";
+};
+
+// signupLink.onclick = () => {
+//   signupBtn.click();
+// };
+
+let userinp;
+let userpass;
+let usermail;
+
+let s = "";
+
+function encrypt(userpass){
+  let a = 178;
+  for (let i = 0; i < userpass.length; i++) {
+    let ch = userpass.charAt(i);
+    
+    if (/[a-zA-Z]/.test(ch)) {
+        let base = ch === ch.toUpperCase() ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
+        s += String.fromCharCode((ch.charCodeAt(0) - base + a) % 26 + base);
+    } else {
+        s += ch;
+    }
+}
+}
+
+
+
+function infoDetails(){
+
+ userinp = document.getElementById('signname').value;
+ userpass = document.getElementById('signpass').value;
+ encrypt(userpass);
+ usermail = document.getElementById('signmail').value;
+
+  let sysDetails={
+      username:userinp,
+      mail:usermail,
+      password:s
+};
+s="";
+  fetch('http://10.52.0.215:8080/SysVue/AdminInfo',{
+    method:'POST',
+    body:JSON.stringify(sysDetails)
+}).then(response => {
+        if (!response.ok) {
+               throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+            return response.json(); // Get the response as a JSON   
+    }).then(data => {
+        if(JSON.stringify(data) == 'true' || JSON.stringify(data) == true){
+          console.log("admin added successfully!");
+        }
+    })
+    
+}
+
+
+function verifyUser(){
+
+    let passwordinpl= "";
+
+    
+let userinpl = document.getElementById('logname').value;
+passwordinpl = document.getElementById('logpass').value;
+encrypt(passwordinpl);
+console.log(s);
+let loginDetails = {
+  username:userinpl,
+  password:s
+}
+s="";
+console.log(loginDetails);
+
+  fetch('http://10.52.0.215:8080/SysVue/VerifyUser',{
+    method:'POST',
+    body:JSON.stringify(loginDetails)
+}).then(response => {
+        if (!response.ok) {
+               throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        console.log("response recived !!! ");
+        console.log(response);
+        return response.json(); // Get the response as a JSON   
+    }).then(data => {
+
+
+      let verifyString = JSON.stringify(data);
+      let verifyJson = JSON.parse(verifyString);
+      console.log(verifyJson.action);
+
+      if(verifyJson.action == 'true' || verifyJson.action == true){
+        document.location.href = "http://10.52.0.67:5500/Sysvue.html#no-users";
+        }
+    
+    })
+  
+}
+
+
+</script>
+</html>

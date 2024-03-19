@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/cpu.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>SysVue</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  
+</head>
+<body>
+    <section class="full-section" id="full-section">
+        <section class="nav-sec">
+            <div class="pro-name"><span>Sys</span>Vue</div>
+            <div class="line"></div>
+            <div class="machines-list">
+            <div class="nav-div">
+                <div class="navs add-div" onclick="loginpage()">
+                    <img src="../icons/Add User Male 1.png" class="nav-logo add-ic1">
+                    <img src="../icons/Add User Male.png" class="nav-logo add-ic2">
+                    <p class="tab-text add-user-btn" id="add-txt">Add User</p>
+                </div>
+<!-- 
+                <div class="navs border" id="cpu-nav">
+                    <img src="" class="nav-logo">
+                    <p class="tab-text" id="cpu-txt">User 1</p>
+                </div> -->
+            </div>
+        </div>
+
+            <div class='dm_downdiv' onclick="changeTheme()">
+
+
+
+                <div class="container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnXwGqRvnTK4r56EXvOBD9wvo5UH2vZamIPg&usqp=CAU " class="moon">
+                    <img src="https://www.svgrepo.com/show/18743/sun.svg" class="sun">
+
+                  </div>
+
+
+
+                <input type="checkbox" id="theme-c">
+                <p class="theme-d">Want to change theme</p>
+                <!-- <div class="intro-text">Hello! Click on the <span><span class="text-sun">sun</span>/<span class="text-moon">moon</span></span>. Go ahead, why don't you?</span>
+                </div>
+                <div class="container">
+                  <input type="checkbox" id="theme-toggle">
+                  <label for="theme-toggle"></label>
+                </div> -->
+                </div>
+        </section>
+
+        <section class="content-sec">
+            <div class="loader">
+                <div class="loader-new">
+                <div class="pswp__preloader__icn">
+                    <div class="pswp__preloader__cut">
+                      <div class="pswp__preloader__donut"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <section class="notify-sec">
+
+            <div class="top-text">
+              <div>
+                <p class="name">Hi, <span id="name">Rahul Doni</span>!</p>
+              </div>
+              <img src="../icons/Job.png" class="range-notify add-ic1" onclick="notifyButton()"/>
+              <img src="../icons/Job 1.png" class="range-notify add-ic2" onclick="notifyButton()"/>
+
+            </div>
+           
+               
+                
+            </section>
+
+            <section>
+                <div class="allow-toggle" id="notify-toggle">
+                    <div class="enable-not">
+                    <h3 class="theme-d">Enable Notifications</h3>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1.7em" viewBox="0 0 384 512" class="cross"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" fill="#efefef" onclick="hideNotify()"/></svg>
+                </div>
+                    <div class="content">
+                      <div class="cpu-notify allow">
+                        <p>CPU</p>
+                        <label class="switch">
+                          <input type="checkbox" class="ischecked" id="cpu-toggle">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      <div class="accordion">
+                        <p>Set Range</p><input type="number" placeholder="Enter limit" class="range_limit" value="50" id="cpu" max="100" required/>
+                        <input type="button" value="ok" id="set_btn" class="theme-d set-btn" onclick="setCpuLimit()"/>
+                      </div>
+                    </div>
+                
+                    <div class="content">
+                      <div class="disk-notify allow">
+                        <p>RAM</p>
+                        <label class="switch">
+                          <input type="checkbox" class="ischecked" id="ram-toggle">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      <div class="accordion">
+                        <p>Set Range</p><input type="number" placeholder="Enter limit" class="range_limit" id="ram" value="50" max="100" required />
+                        <input type="button" value="ok" id="set_btn" class="theme-d set-btn" onclick="setRamLimit()" />
+                      </div>
+                    </div>
+                
+                    <div class="content">
+                      <div class="net-notify allow">
+                        <p>Disk Space</p>
+                        <label class="switch">
+                          <input type="checkbox" class="ischecked" id="disk-toggle">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      <div class="accordion">
+                        <p>Set Range</p><input type="number" placeholder="Enter limit" class="range_limit" id="disk" value="50" max="100" required/>
+                        <input type="button" value="ok" id="set_btn" class="theme-d set-btn" onclick="setDiskLimit()"/>
+                      </div>
+                    </div>
+
+                    <div class="content" id="test">
+                      <div class="battery-notify allow">
+                        <p>Battery</p>
+                        <label class="switch">
+                          <input type="checkbox" class="ischecked" id="battery-toggle">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                      <div class="accordion">
+                        <p>Set Range</p><input type="number" placeholder="Enter limit" class="range_limit" id="battery" value="70" max="100" required/>
+                        <input type="button" value="OK" id="set_btn" class="theme-d set-btn" onclick="setBatteryLimit()" />
+                      </div>
+                    </div>
+                
+                  </div>
+            </section>
+        <section class="new-sec">
+            <section class="battery-graph-section">
+                <section class="basic-graph-details">
+                    <section class="basic-details">
+                        <div class="info-div">
+                            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" class="basic-content-logo" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_123_4)">
+                                <rect width="100" height="100" rx="50" fill="white"/>
+                                <circle cx="50" cy="50" r="50" fill="#151E53" class="os-circle"/>
+                                <path d="M50.0241 49.6364C50.0241 53.1307 49.3849 56.1349 48.1065 58.6491C46.8281 61.1527 45.0756 63.081 42.8491 64.4339C40.6332 65.7763 38.1136 66.4474 35.2905 66.4474C32.4567 66.4474 29.9265 65.7763 27.6999 64.4339C25.484 63.081 23.7369 61.1474 22.4585 58.6332C21.18 56.119 20.5408 53.12 20.5408 49.6364C20.5408 46.142 21.18 43.1431 22.4585 40.6396C23.7369 38.1254 25.484 36.1971 27.6999 34.8548C29.9265 33.5018 32.4567 32.8253 35.2905 32.8253C38.1136 32.8253 40.6332 33.5018 42.8491 34.8548C45.0756 36.1971 46.8281 38.1254 48.1065 40.6396C49.3849 43.1431 50.0241 46.142 50.0241 49.6364ZM45.1342 49.6364C45.1342 46.973 44.7028 44.7305 43.8398 42.9087C42.9876 41.0763 41.8157 39.6914 40.3242 38.7539C38.8434 37.8058 37.1655 37.3317 35.2905 37.3317C33.4048 37.3317 31.7216 37.8058 30.2408 38.7539C28.7599 39.6914 27.5881 41.0763 26.7251 42.9087C25.8729 44.7305 25.4467 46.973 25.4467 49.6364C25.4467 52.2997 25.8729 54.5476 26.7251 56.38C27.5881 58.2017 28.7599 59.5866 30.2408 60.5348C31.7216 61.4723 33.4048 61.9411 35.2905 61.9411C37.1655 61.9411 38.8434 61.4723 40.3242 60.5348C41.8157 59.5866 42.9876 58.2017 43.8398 56.38C44.7028 54.5476 45.1342 52.2997 45.1342 49.6364ZM74.0303 41.87C73.8598 40.3572 73.1567 39.1854 71.9209 38.3544C70.6851 37.5128 69.1297 37.092 67.2547 37.092C65.9124 37.092 64.7512 37.305 63.771 37.7312C62.7909 38.1467 62.0292 38.7219 61.4859 39.457C60.9532 40.1815 60.6869 41.0071 60.6869 41.9339C60.6869 42.7116 60.868 43.3828 61.2302 43.9474C61.6031 44.5121 62.0878 44.9861 62.6844 45.3697C63.2916 45.7425 63.9415 46.0568 64.634 46.3125C65.3264 46.5575 65.9923 46.7599 66.6315 46.9197L69.8275 47.7507C70.8715 48.0064 71.9422 48.3526 73.0395 48.7894C74.1368 49.2262 75.1542 49.8015 76.0917 50.5153C77.0292 51.229 77.7856 52.1133 78.3609 53.168C78.9468 54.2227 79.2398 55.4851 79.2398 56.9553C79.2398 58.8089 78.7604 60.4549 77.8016 61.8931C76.8534 63.3313 75.4738 64.4659 73.6627 65.2969C71.8623 66.1278 69.6837 66.5433 67.1269 66.5433C64.6766 66.5433 62.5566 66.1545 60.7668 65.3768C58.977 64.5991 57.5761 63.4964 56.564 62.0689C55.5519 60.6307 54.9926 58.9261 54.8861 56.9553H59.8399C59.9358 58.1378 60.3193 59.1232 60.9905 59.9116C61.6723 60.6893 62.5406 61.2699 63.5953 61.6534C64.6606 62.0263 65.8271 62.2127 67.0949 62.2127C68.4905 62.2127 69.7316 61.9943 70.8183 61.5575C71.9156 61.1101 72.7785 60.4922 73.4071 59.7038C74.0356 58.9048 74.3499 57.9727 74.3499 56.9073C74.3499 55.9379 74.0729 55.1442 73.5189 54.5263C72.9756 53.9084 72.2352 53.397 71.2977 52.9922C70.3708 52.5874 69.3215 52.2305 68.1496 51.9215L64.2824 50.8668C61.6617 50.1531 59.5843 49.1037 58.0502 47.7188C56.5267 46.3338 55.765 44.5014 55.765 42.2216C55.765 40.3359 56.2764 38.69 57.2991 37.2837C58.3218 35.8775 59.7068 34.7855 61.4539 34.0078C63.2011 33.2195 65.172 32.8253 67.3666 32.8253C69.5825 32.8253 71.5374 33.2141 73.2313 33.9918C74.9358 34.7695 76.2781 35.8402 77.2583 37.2038C78.2384 38.5568 78.7497 40.1122 78.7923 41.87H74.0303Z" fill="white" class="os-icon-txt"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_123_4">
+                                <rect width="100" height="100" rx="50" fill="white"/>
+                                </clipPath>
+                                </defs>
+                                </svg>
+                            <div>
+                                <p class="basic-content-title">OS</p>
+                                <p class="os-name" id="os"></p>
+                            </div>
+                        </div>
+                            
+                        <div class="info-div">
+                            <img src="../icons/Radio Tower.svg" class="basic-content-logo first-icon"/>
+                                <img src="../icons/Radio Tower.png" class="basic-content-logo sec-icon"/>
+                            <div>
+                                <p class="basic-content-title">Host</p>
+                                <p class="os-name" id="hostname"></p>
+                            </div>
+                        </div>
+                        <div class="info-div">
+                            <div>
+                                <img src="../icons/Laptop Bug.png" class="basic-content-logo first-icon"/>
+                                <img src="../icons/Laptop Bug 1.png" class="basic-content-logo sec-icon"/>
+                            </div>  
+                            <div>
+                                <p class="basic-content-title">Uptime</p>
+                                <p class="os-name" id="hostname"><span id="uptime-day">0</span><span>day </span><span id="uptime-hr">00</span><span>hr </span><span id="uptime-mins">00</span><span>mins</span></p>
+                            </div>
+                        </div>
+                        <div class="info-div">
+                            <div>
+                                <img src="../icons/🦆 icon _version line system_.png" class="basic-content-logo first-icon"/>
+                                <img src="../icons/Vector.png" class="basic-content-logo sec-icon"/>
+                            </div>
+                            <div>
+                                <p class="basic-content-title">OS Version</p>
+                                <p class="os-name" id="osversion"></p>
+                            </div>
+                        </div>
+                        <div class="info-div">
+                            <div>
+                                <img src="../icons/Wi-Fi Router.png" class="basic-content-logo first-icon"/>
+                                <img src="../icons/Wi-Fi Router 1.png" class="basic-content-logo sec-icon"/>
+                            </div>
+                            <div>
+                                <p class="basic-content-title">IP Address</p>
+                                <p class="os-name" id="ip"></p>
+                            </div>
+                        </div>
+
+                    </section>
+
+
+
+
+                    <section class="battery-section">
+                        <p class="battery-header">Battery Status</p>
+                        <div class="battery-animation">
+                            <span class="battery-div">
+                                <div class='battery'>
+                                    <div class='bar' data-power='10'></div>
+                                    <div class='bar' data-power='20'></div>
+                                    <div class='bar' data-power='30'></div>
+                                    <div class='bar' data-power='40'></div>
+                                    <div class='bar' data-power='50'></div>
+                                    <div class='bar' data-power='60'></div>
+                                    <div class='bar' data-power='70'></div>
+                                    <div class='bar' data-power='80'></div>
+                                    <div class='bar' data-power='90'></div>
+                                    <div class='bar' data-power='100'></div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="battery-details">
+                            <span><p class="battery-headers">Battery Percentage</p><p class="battery-details-inp" id="battery-percentage">000</p></span>
+                            <span><p class="battery-headers">Performance</p><p class="battery-details-inp" id="battery-performance">000</p></span>
+                            <span><p class="battery-headers">Status</p><p class="battery-details-inp" id="battery-status">000</p></span>
+                            <span><p class="battery-headers">Estimated Time</p><p class="battery-details-inp" id="battery-estimated-time">000</p></span>
+                        </div>
+                    </section>
+                  
+                </section>
+
+
+                <section class="heyy">
+                <div class="performance-nav">
+                    <div class="right-top-nav border_bot" id="cpu-nav">CPU Performance</div>
+                    <div class="right-top-nav" id="ram-nav">RAM Statistics</div>
+                    <div class="right-top-nav" id="disk-nav">Disk Space</div>
+                    <div class="right-top-nav" id="net-nav">Network</div>
+                </div>
+                    
+                <section class="main-sec">
+ 
+                    <section>
+                   
+                    <section class="graph-section index" id="cpu-cont">
+                        <div class="cpu-graph-left">
+                            <p>CPU Performance</p>
+                        </div>
+                        <canvas id="mycanvas"></canvas>
+                    </section>
+
+                
+                  <section class="graph-section ram-graph-section" id="ram-cont">
+                      <p>RAM Usage</p>
+                      <div class="myPieChart">
+                          <canvas id="myPieChart"></canvas>
+                      </div>
+                  </section>
+                 
+                  
+                
+                <!-- <section class="graph-section"> -->
+
+                  <section class="graph-section disk-space-section" id ="disk-cont">
+                      <p class="graph-title">Disk Space Usage</p>
+                      <div class="diskSpaceChart">
+                          <canvas id="diskSpaceChart"></canvas>
+                      </div>
+                  </section>
+
+                <!-- </section> -->
+                <section class="graph-section network-speed-section" id ="net-cont">
+                  <p class="graph-title">Network</p>
+
+                  
+                      <div class="gauge">
+                          <ul class="meter"> 
+                              <li class="low"></li>
+                              <li class="normal"></li>
+                              <li class="high"></li>
+                          </ul>
+      
+                           <div class="dial">
+                              <div class="inner">
+                                  <div class="arrow">
+                                  </div>
+                              </div>		
+                              <div class="value">
+                              0Mbps
+                              </div>
+                          </div>
+                    </div>
+                  <!-- </section> -->
+
+                </section>
+            </section>
+              <section class="details-sec">
+                
+                <section class="cpu-details index" id="cpu-con">
+                  <div class="cpu-stats">
+                      <div class="cpu-process-updown">
+                          <div>
+                              <p>Process</p>
+                              <h2 id="cpu-process">0000</h2>
+                          </div>
+                          <div>
+                              <p>Cores</p>
+                              <h2 id="cpu-core">0000</h2>
+                          </div>
+                      </div>
+                      <div class="cpu-process-updown">
+                          <div>
+                              <p>Socket</p>
+                              <h2 id="cpu-socket">0000</h2>
+                          </div>
+                          <div>
+                              <p>Threads</p>
+                              <h2 id="cpu-thread">0000</h2>
+                          </div>
+                      </div>
+    
+                  </div>
+                  <div class="cpu-temp-fan">
+                      <span class="align-fan"><p>Temperature: </p><p id="cpu-temp" class="celsius">00 °C</p></span>
+                      <span class="align-fan"><p>Fan Min Speed: </p><p id="cpu-min-speed" class="celsius">00 MHz</p></span>
+                      <span class="align-fan"><p>Fan Max Speed: </p><p id="cpu-max-speed" class="celsius">00 MHz</p></span>
+                  </div>
+                </section>
+                <section class="cpu-details ram-details" id="ram-con">
+                    <div>
+                        <span><p>Total Space</p><span><h2 id="totalram">000</h2><p>GB</p></span></span>
+                        <span><p>Available Space</p><span><h2 id="availram">000</h2><p>GB</p></span></span>
+                        <span><p>Used Space</p><span><h2 id="usedram">000</h2><p>GB</p></span></span>
+                    </div>
+                    <div>
+                        <span><p>Cache Space</p><span><h2 id="cacheram">000</h2><p>GB</p></span></span>
+                        <span><p>Free Space</p><span><h2 id="freeram">000</h2><p>GB</p></span></span>
+                        <span><p>Shared Space</p><span><h2 id="sharedram">000</h2><p>GB</p></span></span>
+                    </div> 
+                </section>
+                <!-- <section class="cpu-details">
+                    Disk -->
+                    
+                    <section class="cpu-details disk-space-details" id="disk-con">
+                        <div>
+                            <span><p>Total Space</p><span class="join-gb"><h2 id="totaldisk">000</h2><p>GB</p></span></span>
+                        </div>
+                        <div>
+                            <span><p>Used Space</p><span class="join-gb"><h2 id="useddisk">000</h2><p>GB</p></span></span>
+                        </div>
+                        <div>
+                            <span><p>Avail Space</p><span class="join-gb"><h2 id="availdisk">000</h2><p>GB</p></span></span>
+                        </div>
+                    </section>
+                <!-- </section> -->
+                <section class="cpu-details" id="net-con">
+                    <h1>Network Stats</h1>
+                    <div class="network-d">
+                    <div class="net-details-div">
+                        <p class="wifi-title">Wifi Name</p>
+                        <p class="net-value" id="wifi-name">Zoho Schools</p>
+                    </div>
+                    <div class="net-details-div">
+                        <p class="wifi-title">Frequency</p>
+                        <p class="net-value" id="wifi-frequency">20Mhz</p>
+                    </div>
+                    <div class="net-details-div">
+                        <p class="wifi-title">Signal Level</p>
+                        <p class="net-value" id="wifi-signal">good</p>
+                    </div>
+                </div>
+                </section>
+            </section>
+            </section>
+        </section>
+            </section>
+            </section>
+            
+        <!-- <div class="chat-btn" onclick="displayChat()">
+        </div>
+         -->
+        <div class="chatBot">
+            <div class="enable-not">
+                <h3>SysVue Bot</h3>
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.7em" viewBox="0 0 384 512" class="cross"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" fill="#efefef" onclick="closeChat()"/></svg>
+            </div>
+            <ul class="chatbox">
+                <li class="chat ai">
+                    <span><img class="bot-logo" src="../assets/Sysvuelogo.png" width="32px" height="32px"></span>
+                    <p>Hello Buddy <br>How can I help you ......</p>
+                </li>
+            </ul>
+            <div class="chat-input">
+                <textarea placeholder="Enter your query..." required onkeypress="checkKey(event)"></textarea>
+                <span height="32px" ><img src="../assets/message.png" id="send-btn"></span>
+            </div>
+        </div>
+        </section>
+        
+    </section>
+
+  <div class = notify_bar>
+    
+  </div>
+    <section class="no-users">
+        <div class="no-users-illustration">
+
+        </div>
+        <div class="no-users-btn">
+            <button onclick="loginpage()"><p class="theme-d"><span class="plus theme-d">+</span> Add user</p></button>
+        </div>
+    </section>
+
+    <!-- login section -->
+    <section class="login-sec">
+
+    <div class="login" id="login">
+        <div class="login-ndiv">
+        <h1 class="login-header">Add User</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" height="1.7em" viewBox="0 0 384 512" class="login-cross"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" fill="#2B3674" onclick="closeLogin()"/></svg>
+    </div>
+        
+        <input type="text" placeholder="Username" id="user-inp" class="login-inputs-d" required>
+        <input type="password" placeholder="Password" id="user-pass" class="login-inputs-d" required>
+        <input type="text" placeholder="IPAddress" id="ipa" class="login-inputs-d" onkeypress="return isNumberKey(event)" required>
+        <input type="email" placeholder="Email" id="email-id" class="login-inputs-d" required>
+        <p class="inv-ip" id="inv-ip">Invalid ip!</p>
+
+        <input type="checkbox" id="termsCheckBox">
+        <a onclick="showTermsAndConditions()">Terms and conditions Apply</a>
+        
+        <input type="submit" onclick="checkInputDetails()" class="login-inputs-d theme-d" value="ADD">
+        <div class="added-success" id="added-success">
+            <img src="https://image.similarpng.com/very-thumbnail/2021/05/Checkmark-green-tick-isolated-on-transparent-background-PNG.png" class="tick-img">
+            <p>User added successfully</p>
+        </div>
+    </div>
+    <section class="sec-6"> 
+            <div class="terms" id="terms"> 
+                <h2>Terms & Conditions</h2>
+                <div class="para" >
+                    <h5>1) Data Collection and Usage:</h5>
+                    <p>By using our system monitoring tool, you consent to the collection of data including CPU, RAM, disk, and network usage, as well as IP addresses associated with monitored systems.</p>
+                </div>
+                <div class="para 2">
+                    <h5>2) Confidentiality of Credentials:</h5>
+                    <p>We assure you that your usernames and passwords will not be stored or logged by our tool. We employ secure, real-time data monitoring techniques that do not involve the retention of any sensitive login information.</p>
+                </div>
+                <div class="para 3">
+                    <h5>3) Data Confidentiality:</h5>
+                    <p>We are committed to maintaining the confidentiality of the collected data and will not disclose it to third parties unless required by law.</p>
+                </div>
+                <div class="para 4">
+                    <h5>4) User Responsibilities:</h5>
+                    <p>You are responsible for ensuring the security of your systems and credentials.</p>
+                </div>
+                <div class="para 5">
+                    <h5>5) Limitation of Liability:</h5>
+                    <p>While we strive for accuracy and reliability, we cannot guarantee it, and we shall not be liable for any damages arising from the use of this tool.</p>
+                </div>
+                <div class="para 6">
+                    <h5>6) Acceptance of Terms:</h5>
+                    <p>By agreeing to these terms, you acknowledge your understanding and acceptance of these conditions.</p>
+                </div>
+                <div class="button">
+                    <button id="but1" onclick="acceptTerms()">Accept</button>
+                    <button id="but2" onclick="closeTerms()">Go Back</button>
+                </div>
+            </div>
+    </section>
+    <div class="black-bg" id="black-bg">
+        
+    </div>
+</body>
+ <script src="../js/style-script.js"></script>
+ 
+ <script src="../js/basicdetails.js"></script>
+ <script src="../js/adduser.js"></script>
+  <script src="../js/cpu-chart.js"></script>
+  <script src="../js/ram.js"></script>
+  <script src="../js/disk.js"></script>
+  <script src="../js/network.js"></script>
+  <script src="../js/battery.js"></script>
+  <script src="../js/wifiDetails.js"></script>
+  <script src="../js/notifications.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+</html>
